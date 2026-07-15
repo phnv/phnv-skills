@@ -1,8 +1,6 @@
 # 🧠 phnv-skills
 
-> A CLI tool and curated library for managing and deploying AI Agent Skills across various assistant environments.
-
-`phnv-skills` allows developers to package, distribute, and install structured instruction sets (skills) directly into their project workspaces. The CLI automatically detects which AI assistant ecosystem your project uses (Cursor, Copilot, Claude, or Antigravity) and configures the skill output to match that assistant's native format.
+The CLI automatically detects which AI assistant ecosystem your project uses (Cursor, Copilot, Claude, or Antigravity) and configures the skill output to match that assistant's native format.
 
 ---
 
