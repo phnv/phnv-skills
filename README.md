@@ -1,4 +1,4 @@
-# 🧠 phnv-skills
+# phnv-skills
 
 The CLI automatically detects which AI assistant ecosystem your project uses (Cursor, Copilot, Claude, or Antigravity) and configures the skill output to match that assistant's native format.
 
@@ -17,27 +17,6 @@ Or execute it directly using `npx`:
 ```bash
 npx phnv-skills --help
 ```
-
----
-
-## 🛠️ Usage
-
-### Add a Skill to your Project
-Navigate to your project directory and run:
-
-```bash
-phnv-skills add <skill-name>
-```
-
-The CLI will scan the current directory for agent triggers and copy the skill instructions to the correct destination folder (renaming files appropriately for the target agent).
-
-### Install a Skill Globally
-To make a skill available across all your Antigravity workspaces:
-
-```bash
-phnv-skills add <skill-name> --global
-```
-*This installs the skill instructions to `~/.gemini/config/skills/<skill-name>`.*
 
 ---
 
