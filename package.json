@@ -1,0 +1,23 @@
+{
+  "name": "phnv-skills",
+  "version": "1.0.0",
+  "description": "A repository of agent skills",
+  "main": "dist/cli.js",
+  "bin": {
+    "phnv-skills": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "start": "node dist/cli.js"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "fs-extra": "^11.2.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^20.12.0",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.3"
+  }
+}
