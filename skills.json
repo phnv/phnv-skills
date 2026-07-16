@@ -1,0 +1,22 @@
+{
+  "skills": [
+    {
+      "source": "github/awesome-copilot",
+      "skills": [
+        "create-readme"
+      ]
+    },
+    {
+      "source": "mattpocock/skills",
+      "skills": [
+        "writing-great-skills"
+      ]
+    },
+    {
+      "source": "vercel-labs/skills",
+      "skills": [
+        "find-skills"
+      ]
+    }
+  ]
+}

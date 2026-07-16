@@ -6,6 +6,21 @@
   "bin": {
     "phnv-skills": "./dist/cli.js"
   },
+  "files": [
+    "dist",
+    "skills",
+    "skills.json"
+  ],
+  "author": "Pedro Henrique Vianna <phen.vianna@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phnv/phnv-skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/phnv/phnv-skills/issues"
+  },
+  "homepage": "https://github.com/phnv/phnv-skills#readme",
   "scripts": {
     "build": "tsup",
     "start": "node dist/cli.js"
