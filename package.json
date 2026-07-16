@@ -1,6 +1,6 @@
 {
   "name": "phnv-skills",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A repository of agent skills",
   "main": "dist/cli.js",
   "bin": {
