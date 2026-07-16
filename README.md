@@ -15,7 +15,7 @@ npm install -g phnv-skills
 Or execute it directly using `npx`:
 
 ```bash
-npx phnv-skills --help
+npx phnv-skills@latest
 ```
 
 ---
