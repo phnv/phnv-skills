@@ -32,6 +32,13 @@ tsconfig.tsbuildinfo
 # Local agent development
 .agents/
 
+# fact-check-stack runtime artifacts
+# Evidence cache, generated reports, and lockfiles produced during fact-checking runs.
+# These are project-local snapshots; do not commit unless you want to share a specific report.
+.fact-check/
+# To commit a specific report, override with:
+#   git add -f .fact-check/feasibility-report.md
+
 # Logs & runtimes
 *.log
 npm-debug.log*
