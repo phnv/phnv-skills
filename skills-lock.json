@@ -6,6 +6,12 @@
       "sourceType": "github",
       "skillPath": "skills/wsl-development-environment/SKILL.md",
       "computedHash": "b432518b2bad539665e7f7d5ad89e0103625dcc8ec55ff950208ea071fb31b6b"
+    },
+    "fact-check-stack": {
+      "source": "phnv/phnv-skills",
+      "sourceType": "github",
+      "skillPath": "skills/fact-check-stack/SKILL.md",
+      "computedHash": "7ee6ea3d31e4321f2212e9755f0cbf44707eca3969eed62b63820b9f174079ad"
     }
   }
 }
