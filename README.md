@@ -51,6 +51,7 @@ When a skill is installed into a project, the CLI scans the current directory fo
 
 Skills available in this repository:
 
+*   **`fact-check-stack`** — Verifies technical feasibility and feature correctness of project architectures before agentic codegen begins. Double-checks ADR assumptions against live documentation, cross-references package compatibility, and surfaces implementation hazards.
 *   **`wsl-development-environment`** — Establishes a Linux-first execution rule, environment verification sequences, and proper toolchain usage policies when writing code or running terminal commands inside Windows Subsystem for Linux (WSL).
 
 Browse & install this skill on **[skills.sh/phnv/phnv-skills](https://skills.sh/phnv/phnv-skills)**.
