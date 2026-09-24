@@ -23,7 +23,8 @@
   "homepage": "https://github.com/phnv/phnv-skills#readme",
   "scripts": {
     "build": "tsup",
-    "start": "node dist/cli.js"
+    "start": "node dist/cli.js",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "commander": "^12.0.0",
