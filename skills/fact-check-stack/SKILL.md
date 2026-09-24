@@ -1,3 +1,8 @@
+---
+name: fact-check-stack
+description: Verify technical feasibility and feature correctness of project architectures before agentic codegen begins. Double-check ADR assumptions against live documentation, cross-reference package compatibility, and surface implementation hazards.
+---
+
 # fact-check-stack
 
 **Purpose:** Verify technical feasibility and feature correctness of project architectures before agentic codegen begins. Double-check ADR assumptions against live documentation, cross-reference package compatibility, and surface implementation hazards.
