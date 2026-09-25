@@ -12,6 +12,12 @@
       "sourceType": "github",
       "skillPath": "skills/fact-check-stack/SKILL.md",
       "computedHash": "7ee6ea3d31e4321f2212e9755f0cbf44707eca3969eed62b63820b9f174079ad"
+    },
+    "publish-skill": {
+      "source": "phnv/phnv-skills",
+      "sourceType": "github",
+      "skillPath": "skills/publish-skill/SKILL.md",
+      "computedHash": "96f609b7d85ac77001f267f0116157187913fa7af89582ad4fe8e495e04bbe72"
     }
   }
 }

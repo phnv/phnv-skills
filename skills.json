@@ -17,6 +17,12 @@
       "skills": [
         "find-skills"
       ]
+    },
+    {
+      "source": "phnv/phnv-skills",
+      "skills": [
+        "publish-skill"
+      ]
     }
   ]
 }

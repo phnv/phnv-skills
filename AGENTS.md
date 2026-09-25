@@ -88,6 +88,42 @@ node dist/cli.js add <skill-name>
 
 ---
 
+## 🚀 Publishing & Distributing Skills
+
+When you add a new skill or update an existing one, you must distribute these changes so they can be consumed via NPM or directly from GitHub via `npx`. Follow these exact steps:
+
+### 1. File Requirements
+Before publishing, ensure the following files are correctly updated:
+- **`SKILL.md`**: Must contain the YAML frontmatter (`name` and `description`). Without this, the skill is completely skipped by the CLI.
+- **`skills-lock.json`**: Update the skill entry with its source type, path, and the computed SHA-256 hash of its `SKILL.md` file (`sha256sum skills/<skill-name>/SKILL.md`).
+- **`skills.json`**: Make sure the skill is listed under the appropriate source in the global registry file.
+
+### 2. Git Commit & Push (GitHub Distribution)
+Because the `npx skills add phnv/phnv-skills` command clones directly from the remote GitHub repository, you **must** push your changes. If you do not push, the CLI will not see the new skill.
+```bash
+git add .
+git commit -m "feat: add or update <skill-name>"
+git push
+```
+*To install from GitHub after pushing:*
+```bash
+npx skills add phnv/phnv-skills --skill <skill-name>
+```
+
+### 3. NPM Publish (NPM Distribution)
+If you also distribute the package via NPM, you must bump the version and publish. `npm publish` often prompts for web-based authentication, which crashes in headless WSL environments if not handled correctly.
+Use the `BROWSER=true` workaround to safely authenticate:
+```bash
+# 1. Bump the version (working directory MUST be clean)
+npm version patch
+
+# 2. Publish using the browser workaround to prevent WSL crashes
+BROWSER=true npm publish
+```
+*When prompted, press ENTER, then manually copy the authentication URL printed in the terminal into your Windows browser. Once authenticated on the web, the terminal will resume and finish the upload.*
+
+---
+
 ## 🚫 Critical Constraints for AI Agents
 
 - **Preserve YAML Frontmatter:** Never delete or alter the YAML frontmatter delimiters (`---`) or existing fields when modifying a skill unless explicitly instructed.
