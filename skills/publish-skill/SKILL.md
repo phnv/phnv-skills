@@ -51,6 +51,45 @@ Open the matching reference file(s) and follow them exactly — each has the rea
 
 **Check network access before promising anything will just run.** Try a harmless network call (e.g. `pip install --dry-run skills-ref` or similar) if it's not already obvious from context. Sandboxes commonly have no outbound network access at all, in which case every file still gets created and every command still gets written correctly here, but literally all of `pip install`, `npm install`/`login`/`publish`, `git push`, `claude plugin marketplace add` against a remote, and any web-form submission need to run in the user's own terminal, with their own credentials. State this plainly, once, before handing over a long list of commands — don't let the user discover it only after a command silently fails or hangs. If network access does work in the current environment, run what you safely can (validation, local git commits) and still hand off anything requiring the user's own credentials.
 
+### skills-npm specific — common failure points
+
+These apply only when the chosen channel is `skills-npm` (skill rides inside an existing npm package).
+
+**Node version.** `skills-npm` requires Node ≥22. Confirm before running anything:
+```bash
+node -v
+# If using nvm and the version is wrong:
+source ~/.nvm/nvm.sh && nvm use 22
+```
+If `npm publish` spawns the `prepare` script and it crashes with an obscure error like `styleText is not exported`, this is the cause — the subprocess inherited the system Node, not nvm's active version.
+
+**Dirty working directory.** `skills-npm setup` modifies `package.json`. Running `npm version patch` immediately after will fail with `Git working directory not clean`. Always commit first:
+```bash
+npx skills-npm setup
+git add package.json package-lock.json
+git commit -m "chore: wire skills-npm"
+npm version patch   # now clean, will succeed
+```
+
+**`npm publish` returns 404.** This almost always means you are not logged in, not that the package is missing. Confirm with `npm whoami`. If it errors, run:
+```bash
+BROWSER=true npm login
+```
+Then retry publish.
+
+**`npm publish` returns 403 "cannot publish over previously published version".** The local version matches what is already on the registry — the version bump didn't happen. Check:
+```bash
+npm view <package-name> version   # version live on registry
+node -p "require('./package.json').version"  # local version
+```
+If they match, run `npm version patch` (after ensuring a clean git tree) before publishing.
+
+**Always push tags after publishing.**  `npm version patch` creates a git tag locally. Push it explicitly:
+```bash
+git push --follow-tags
+```
+A plain `git push` does not push tags.
+
 ## Step 5 — Wrap up
 
 Summarize: what files were created, the exact commands to run and in what order, which of those are safe to run immediately vs. optional next steps (e.g., "you don't need the npm route unless you also want X"). If they picked multiple channels, make clear these can be done independently and in any order — nothing here is a strict pipeline.
@@ -67,3 +106,4 @@ Summarize: what files were created, the exact commands to run and in what order,
 ## Scripts
 
 - `scripts/validate_skill.sh` — thin wrapper around `skills-ref` that installs it if missing and prints a clear pass/fail
+- `scripts/publish.sh` — end-to-end npm publish helper: checks Node version, guards against a dirty git tree, confirms no version collision with the registry, publishes, and pushes tags. Tell users to run this instead of the individual commands when using the skills-npm route.
